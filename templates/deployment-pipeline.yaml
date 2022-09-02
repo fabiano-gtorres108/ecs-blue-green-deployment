@@ -218,7 +218,6 @@ Resources:
             install:
               commands:
                 - apt-get update && apt-get -y install python-pip
-                - pip install --upgrade python
                 - pip install --upgrade awscli
             pre_build:
               commands:
@@ -260,14 +259,13 @@ Resources:
           phases:
             install:
               commands:
-                - pip install --upgrade python
                 - pip install --upgrade awscli
                 - pip install --upgrade boto3
             pre_build:
               commands:
                 - printenv
                 - ls -ld $(find .)
-                - python deployer.py
+                - python3 deployer.py
           artifacts:
             files: cf_inputs.json
             discard-paths: yes
